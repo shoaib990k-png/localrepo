@@ -149,6 +149,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     navLinks.classList.remove('show');
                     mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
+
+                // Close globe menu if open
+                if (globeMenu.classList.contains('show')) {
+                    globeMenu.classList.remove('show');
+                }
             }
         });
     });
@@ -239,4 +244,21 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = 'auto';
         }
     });
+
+    // Globe Menu Toggle
+    const globeBtn = document.querySelector('.globe-btn');
+    const globeMenu = document.querySelector('.globe-menu');
+
+    if (globeBtn && globeMenu) {
+        globeBtn.addEventListener('click', () => {
+            globeMenu.classList.toggle('show');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!globeBtn.contains(e.target) && !globeMenu.contains(e.target)) {
+                globeMenu.classList.remove('show');
+            }
+        });
+    }
 });

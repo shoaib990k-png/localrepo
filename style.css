@@ -93,6 +93,81 @@ header {
      gap: 30px;
  }
 
+ .nav-opt {
+     display: flex;
+     list-style: none;
+     margin-top: 15px;
+ }
+
+ .nav-opt li {
+     margin-left: 30px;
+     position: relative;
+ }
+
+ .nav-opt li a {
+     color: var(--dark);
+     text-decoration: none;
+     font-weight: 500;
+     font-size: 1.05rem;
+     transition: color 0.3s;
+     display: flex;
+     align-items: center;
+     gap: 8px;
+ }
+
+ .nav-opt li a i {
+     font-size: 0.9rem;
+ }
+
+ .nav-opt li a span {
+     position: relative;
+ }
+
+ .nav-opt li a span::after {
+     content: '';
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 0;
+     height: 2px;
+     background: var(--gradient);
+     transition: width 1.2s ease-in-out;
+ }
+
+ .nav-opt li a span:hover {
+     color: var(--primary);
+ }
+
+ .nav-opt li a span:hover::after {
+     width: 100%;
+ }
+
+ .nav-cta {
+     background: var(--gradient);
+     padding: 10px 25px;
+     border-radius: 30px;
+     font-weight: 600;
+     box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+     transition: all 0.3s;
+ }
+
+ .nav-cta:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+ }
+
+ .menu-toggle {
+     display: none;
+     font-size: 1.8rem;
+     cursor: pointer;
+     color: var(--primary);
+     transition: transform 0.3s;
+ }
+
+ .menu-toggle:hover {
+     transform: rotate(90deg);
+ }
+
  .nav-links li {
      position: relative;
  }
@@ -200,15 +275,15 @@ header {
  }
 
  .hero-content {
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 40px;
      position: relative;
      z-index: 2;
+     align-items: center;
  }
 
  .hero-text {
-     flex: 1;
      padding-right: 50px;
      opacity: 0;
      transform: translateY(30px);
@@ -1099,15 +1174,20 @@ header {
  }
 
  /* Responsive Design */
- @media (max-width: 1200px) {
-     .hero-text h1 {
-         font-size: 3.2rem;
-     }
- }
+@media (min-width: 993px) {
+    .hero-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-text h1 {
+        font-size: 3.2rem;
+    }
+}
 
  @media (max-width: 992px) {
      .hero-content {
-         flex-direction: column;
          text-align: center;
      }
 
@@ -1125,24 +1205,30 @@ header {
          top: 80px;
          left: 0;
          width: 100%;
-         background: white;
+         background: rgba(255, 255, 255, 0.95);
+         -webkit-backdrop-filter: blur(15px);
+         backdrop-filter: blur(15px);
          flex-direction: column;
          padding: 30px;
-         box-shadow: var(--shadow-lg);
-         transform: translateY(-100%);
-         opacity: 0;
-         visibility: hidden;
-         transition: all 0.4s ease;
+         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+         transition: clip-path 0.5s ease;
          z-index: 1000;
      }
 
+     .nav-links li {
+         margin: 0 0 20px 0;
+         text-align: center;
+     }
+
      .nav-links.show {
-         transform: translateY(0);
-         opacity: 1;
-         visibility: visible;
+         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
      }
 
      .mobile-menu-btn {
+         display: flex;
+     }
+
+     .globe-btn {
          display: flex;
      }
 
@@ -1192,6 +1278,30 @@ header {
      .video-modal-header {
          padding: 15px 20px;
      }
+ }
+
+ /* Globe Button */
+ .globe-btn {
+     display: none;
+     background: none;
+     border: none;
+     font-size: 28px;
+     cursor: pointer;
+     color: var(--dark);
+     width: 40px;
+     height: 40px;
+     border-radius: 50%;
+     background: var(--light);
+     justify-content: center;
+     align-items: center;
+     box-shadow: var(--shadow);
+     transition: all 0.3s ease;
+     margin-left: 10px;
+ }
+
+ .globe-btn:hover {
+     background: var(--primary);
+     color: white;
  }
 
  /* Mobile Menu */
@@ -1296,6 +1406,7 @@ header {
     .hero-text h1 {
         font-size: 2rem;
         line-height: 1.1;
+        max-width: 100%;
     }
 
     .hero-text p {
@@ -1306,12 +1417,25 @@ header {
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
+        align-items: center;
     }
 
-    .hero-buttons .cta-button,
-    .hero-buttons .secondary-button {
+    .hero-buttons .cta-button {
+        order: -1;
         width: 100%;
+        max-width: 300px;
         justify-content: center;
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .hero-buttons .secondary-button {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+        padding: 12px 24px;
+        font-size: 1rem;
     }
 
     .section-title h2 {

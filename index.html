@@ -1,46 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harry Dev | Business Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
-        <div class="video-modal-content">
-            <div class="video-modal-header">
-                <h3 class="video-modal-title">Harry Dev Demo</h3>
-                <button class="video-modal-close" id="closeVideoModal" aria-label="Close video modal" title="Close video modal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="video-container">
-                <!-- Replace this with your actual video URL -->
-                <iframe src="https://www.youtube.com/embed/9No-FiEInLA" title="Harry Dev Demo Video" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Custom cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <!-- Scroll progress bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
     </div>
 
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header id="header">
         <div class="container">
             <nav>
@@ -48,39 +22,36 @@
                     <i class="fas fa-rocket"></i>
                     Harry Dev
                 </div>
+                
                 <ul class="nav-links">
                     <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#solutions"><i class="fas fa-cogs"></i> Solutions</a></li>
                     <li><a href="#testimonials"><i class="fas fa-comment"></i> Testimonials</a></li>
                     <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><button type="button" class="cta-button">Get Started <i class="fas fa-arrow-right"></i></button></li>
                 </ul>
-                <button class="cta-button">Get Started <i class="fas fa-arrow-right"></i></button>
                 
-                <button class="mobile-menu-btn" aria-label="Toggle mobile menu" title="Toggle mobile menu">
+                <button type="button" class="mobile-menu-btn" aria-label="Toggle mobile menu" title="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
                 </button>
             </nav>
         </div>
     </header>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="particles-container" id="particles-container"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Transform Your Business with AI-Powered Solutions</h1>
-                    <p>Harry Dev delivers cutting-edge business transformation through AI-driven insights, automation,
-                        and strategic innovation for exponential growth.</p>
+                    <p>Harry Dev delivers cutting-edge business transformation through AI-driven insights, automation, and strategic innovation for exponential growth.</p>
                     <div class="hero-buttons">
-                        <button class="cta-button">Start Free Trial <i class="fas fa-arrow-right"></i></button>
-                        <button class="secondary-button" id="watchDemoBtn" title="Watch Demo">Watch Demo <i
-                                class="fas fa-play-circle"></i></button>
+                        <button type="button" class="cta-button">Start Free Trial <i class="fas fa-arrow-right"></i></button>
+                        <button type="button" class="secondary-button" id="watchDemoBtn">Watch Demo <i class="fas fa-play-circle"></i></button>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
-                        alt="Business Solutions">
-                    <div class="floating-shape shape-1"></div>
-                    <div class="floating-shape shape-2"></div>
+                    <img src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Solutions">
                 </div>
             </div>
         </div>
@@ -99,8 +70,7 @@
                         <i class="fas fa-brain"></i>
                     </div>
                     <h3>AI-Powered Analytics</h3>
-                    <p>Leverage machine learning algorithms to gain deep insights into your business performance and
-                        customer behavior.</p>
+                    <p>Leverage machine learning algorithms to gain deep insights into your business performance and customer behavior.</p>
                     <a href="#" class="feature-link">Explore Features <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card animate">
@@ -108,8 +78,7 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <h3>Process Automation</h3>
-                    <p>Streamline operations with intelligent automation that reduces manual work and increases
-                        efficiency by up to 70%.</p>
+                    <p>Streamline operations with intelligent automation that reduces manual work and increases efficiency by up to 70%.</p>
                     <a href="#" class="feature-link">Explore Features <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card animate">
@@ -117,8 +86,7 @@
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Advanced Security</h3>
-                    <p>Enterprise-grade security with multi-layered protection, ensuring your data remains safe and
-                        compliant.</p>
+                    <p>Enterprise-grade security with multi-layered protection, ensuring your data remains safe and compliant.</p>
                     <a href="#" class="feature-link">Explore Features <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -157,38 +125,13 @@
                 <p>Hear from industry leaders who have transformed their businesses with Harry Dev</p>
             </div>
             <div class="testimonials-container">
-                <div class="testimonial-card active">
+                <div class="testimonial-card">
                     <div class="testimonial-avatar">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="John Doe">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="John Doe">
                     </div>
-                    <p class="testimonial-text">Harry Dev has completely transformed our business operations. Their
-                        AI-driven solutions have helped us increase productivity by 40% in just three months while
-                        reducing operational costs significantly.</p>
+                    <p class="testimonial-text">Harry Dev has completely transformed our business operations. Their AI-driven solutions have helped us increase productivity by 40% in just three months while reducing operational costs significantly.</p>
                     <h4 class="testimonial-author">John Doe</h4>
                     <p class="testimonial-role">CEO, TechCorp International</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="Jane Smith">
-                    </div>
-                    <p class="testimonial-text">The analytics tools provided by Harry Dev have given us insights we
-                        never thought possible. We've optimized our marketing spend and increased ROI by 120% in the
-                        first quarter alone.</p>
-                    <h4 class="testimonial-author">Jane Smith</h4>
-                    <p class="testimonial-role">Marketing Director, InnovateX</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-                            alt="Robert Johnson">
-                    </div>
-                    <p class="testimonial-text">Implementation was seamless and the support team has been incredible.
-                        Our business is now more efficient than ever before, with automated processes saving us over 20
-                        hours per week.</p>
-                    <h4 class="testimonial-author">Robert Johnson</h4>
-                    <p class="testimonial-role">Operations Manager, ScaleUp Inc.</p>
                 </div>
                 <div class="testimonial-dots">
                     <div class="dot active" data-index="0"></div>
@@ -265,8 +208,7 @@
                             <label for="message">Message</label>
                             <textarea id="message" placeholder="How can we help you?" required></textarea>
                         </div>
-                        <button type="submit" class="cta-button">Send Message <i
-                                class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="cta-button">Send Message <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -279,8 +221,7 @@
             <div class="footer-grid">
                 <div class="footer-column">
                     <h4>About Harry Dev</h4>
-                    <p>Harry Dev provides cutting-edge business solutions that help companies transform and grow in
-                        the digital age through AI and automation.</p>
+                    <p>Harry Dev provides cutting-edge business solutions that help companies transform and grow in the digital age through AI and automation.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -313,8 +254,7 @@
                     <p>Subscribe to our newsletter to get updates on our latest offerings and industry insights.</p>
                     <form id="newsletterForm">
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email Address" required
-                                aria-label="Email for newsletter">
+                            <input type="email" placeholder="Your Email Address" required aria-label="Email for newsletter">
                         </div>
                         <button type="submit" class="cta-button">Subscribe <i class="fas fa-bell"></i></button>
                     </form>
@@ -326,7 +266,15 @@
         </div>
     </footer>
 
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/9No-FiEInLA" title="Harry Dev Demo Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>

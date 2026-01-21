@@ -186,6 +186,9 @@ nav {
 
 .hero-text {
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s forwards 0.5s;
 }
 
 @media (min-width: 992px) {
@@ -225,6 +228,10 @@ nav {
 .hero-image {
     position: relative;
     order: -1;
+    opacity: 0;
+    transform: translateX(50px) rotate(5deg);
+    animation: fadeInRight 1s forwards 0.8s;
+    z-index: 2;
 }
 
 @media (min-width: 992px) {
@@ -236,6 +243,57 @@ nav {
     height: auto;
     border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover img {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.floating-shape {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 20px;
+    background: var(--gradient);
+    opacity: 0.8;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    top: -30px;
+    left: -30px;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    bottom: 40px;
+    right: -40px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    animation-delay: 1s;
+}
+
+/* Particle Background */
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: floatParticle 15s infinite linear;
 }
 
 /* Sections */
@@ -293,8 +351,12 @@ section {
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
     box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .feature-icon {
@@ -324,6 +386,33 @@ section {
 .feature-card p {
     color: var(--gray);
     margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+    color: var(--dark);
+}
+
+.feature-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.feature-link i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.feature-link:hover {
+    transform: translateX(5px);
+}
+
+.feature-link:hover i {
+    transform: translateX(5px);
 }
 
 /* Stats Section */
@@ -363,46 +452,93 @@ section {
 
 /* Testimonials */
 .testimonials-container {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
 }
 
 .testimonial-card {
     background: white;
-    border-radius: var(--radius);
-    padding: clamp(2rem, 4vw, 3rem);
+    border-radius: 20px;
+    padding: 50px;
     box-shadow: var(--shadow);
+    margin: 0 20px;
     text-align: center;
+    opacity: 0;
+    transform: scale(0.9) translateY(50px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    position: relative;
 }
 
 .testimonial-avatar {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto 25px;
     overflow: hidden;
-    border: 3px solid var(--primary);
+    border: 4px solid var(--primary);
+    box-shadow: var(--shadow);
+    position: relative;
 }
 
 .testimonial-avatar img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-card:hover .testimonial-avatar img {
+    transform: scale(1.1);
 }
 
 .testimonial-text {
     font-style: italic;
-    margin-bottom: 1.5rem;
-    color: var(--dark);
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    line-height: 1.8;
     position: relative;
-    padding: 0 1rem;
+    padding: 0 20px;
+}
+
+.testimonial-text::before,
+.testimonial-text::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary);
+    opacity: 0.2;
+    position: absolute;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.testimonial-text::before {
+    top: -20px;
+    left: 0;
+}
+
+.testimonial-text::after {
+    bottom: -40px;
+    right: 0;
 }
 
 .testimonial-author {
     font-weight: 700;
     color: var(--dark);
-    margin-bottom: 0.25rem;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
 }
 
 .testimonial-role {
@@ -413,22 +549,42 @@ section {
 .testimonial-dots {
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
+    gap: 15px;
+    margin-top: 40px;
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: var(--gray-light);
+    background: #cbd5e1;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .dot.active {
     background: var(--primary);
     transform: scale(1.2);
+}
+
+.dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dot:hover::after {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.3;
 }
 
 /* Contact Section */
@@ -709,6 +865,39 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    66% {
+        transform: translateY(10px) rotate(-5deg);
+    }
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
     }
 }
 

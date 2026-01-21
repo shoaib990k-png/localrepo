@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Create floating particles
+    const particlesContainer = document.getElementById('particles-container');
+    const colors = ['#3b82f6', '#8b5cf6', '#f97316'];
+
+    for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+
+        const size = Math.random() * 20 + 5;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.background = color;
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 15}s`;
+        particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+
+        particlesContainer.appendChild(particle);
+    }
+
     // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
@@ -60,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '0px'
     });
 
     animatedElements.forEach(element => {
@@ -93,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateCounter();
                 statObserver.unobserve(stat);
             }
-        }, { threshold: 0.5 });
+        }, { threshold: 0 });
         
         statObserver.observe(stat);
     });
@@ -156,12 +178,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Testimonial slider (simplified for better mobile performance)
-    const testimonialDots = document.querySelectorAll('.dot');
-    testimonialDots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            testimonialDots.forEach(d => d.classList.remove('active'));
-            this.classList.add('active');
+    // Testimonial slider
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    let currentTestimonial = 1; // Start with Jane Smith (index 1)
+
+    function showTestimonial(index) {
+        testimonialCards.forEach(card => card.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        testimonialCards[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentTestimonial = index;
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', function () {
+            const index = parseInt(this.getAttribute('data-index'));
+            showTestimonial(index);
         });
     });
+
+    // Auto slide testimonials
+    setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+        showTestimonial(currentTestimonial);
+    }, 6000);
 });

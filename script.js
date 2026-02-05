@@ -154,6 +154,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const watchDemoBtn = document.getElementById('watchDemoBtn');
     const closeVideoModal = document.querySelector('.video-modal');
 
+    // Start Free Trial Button
+    const startTrialBtn = document.getElementById('startTrialBtn');
+    if (startTrialBtn) {
+        startTrialBtn.addEventListener('click', () => {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                window.scrollTo({
+                    top: contactSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
     if (watchDemoBtn) {
         watchDemoBtn.addEventListener('click', () => {
             videoModal.classList.add('active');

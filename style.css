@@ -178,6 +178,8 @@ nav {
     grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
+    position: relative;
+    z-index: 3;
 }
 
 @media (min-width: 992px) {

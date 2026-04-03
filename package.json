@@ -1,0 +1,25 @@
+{
+  "name": "harry-dev-website",
+  "version": "1.0.0",
+  "description": "Harry Dev Business Solutions Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "keywords": [
+    "business",
+    "website",
+    "harry-dev"
+  ],
+  "author": "Harry Dev",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.1"
+  }
+}
